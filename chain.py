@@ -1,11 +1,11 @@
 class Chain:
     """
-        A discrete-time Markov chain.
+    A discrete-time Markov chain.
 
-        States are arbitrary hashable python objects.
-        Transitions are stored as adjacency dictionaries with attributes, rather than as a matrix.
+    States are arbitrary hashable python objects.
+    Transitions are stored as adjacency dictionaries with attributes, rather than as a matrix.
 
-        This class stores structures only, algorithms are implemented externally
+    This class stores structures only, algorithms are implemented externally
     """
 
     def __init__(self, data=None, **attr):

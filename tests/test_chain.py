@@ -2,6 +2,7 @@ import pytest
 
 from markovpy import Chain
 
+
 def test_empty_chain():
     c = Chain()
     assert len(c) == 0
@@ -63,10 +64,12 @@ def test_add_transition_with_attributes():
 
 def test_add_transitions_from_pairs():
     c = Chain()
-    c.add_transitions_from([
-        ("A", "B"),
-        ("B", "C"),
-    ])
+    c.add_transitions_from(
+        [
+            ("A", "B"),
+            ("B", "C"),
+        ]
+    )
 
     assert c.has_transition("A", "B")
     assert c.has_transition("B", "C")
@@ -74,10 +77,12 @@ def test_add_transitions_from_pairs():
 
 def test_add_transitions_from_weighted():
     c = Chain()
-    c.add_transitions_from([
-        ("A", "B", 0.3),
-        ("A", "C", 0.7),
-    ])
+    c.add_transitions_from(
+        [
+            ("A", "B", 0.3),
+            ("A", "C", 0.7),
+        ]
+    )
 
     assert c._trans["A"]["B"]["p"] == 0.3
     assert c._trans["A"]["C"]["p"] == 0.7
@@ -85,9 +90,11 @@ def test_add_transitions_from_weighted():
 
 def test_add_transitions_from_dict_attrs():
     c = Chain()
-    c.add_transitions_from([
-        ("A", "B", {"p": 1.0, "foo": "bar"}),
-    ])
+    c.add_transitions_from(
+        [
+            ("A", "B", {"p": 1.0, "foo": "bar"}),
+        ]
+    )
 
     attr = c._trans["A"]["B"]
     assert attr["p"] == 1.0
@@ -97,9 +104,11 @@ def test_add_transitions_from_dict_attrs():
 def test_invalid_transition_tuple():
     c = Chain()
     with pytest.raises(ValueError):
-        c.add_transitions_from([
-            ("A", "B", 0.5, {}, "extra"),
-        ])
+        c.add_transitions_from(
+            [
+                ("A", "B", 0.5, {}, "extra"),
+            ]
+        )
 
 
 def test_successors():

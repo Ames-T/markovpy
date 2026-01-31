@@ -100,3 +100,16 @@ def test_closed_class_false():
     cls = {"A", "B"}
 
     assert not is_closed(c, cls)
+
+
+def test_readme_example():
+    c = Chain()
+
+    c.add_states_from(["A", "B", "C"])
+    c.add_transition("A", "B", p=0.5)
+    c.add_transition("A", "A", p=0.25)
+    c.add_transition("A", "C", p=0.25)
+
+    c.normalise()
+
+    assert communication_classes(c) == [{"A"}, {"B"}, {"C"}]

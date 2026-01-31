@@ -1,2 +1,23 @@
 [project]
 name = "markovpy"
+version = "0.1.0"
+description = "A lightweight Markov chain library inspired by NetworkX"
+authors = [{ name = "Ames Turner" }]
+readme = "README.md"
+requires-python = ">=3.10"
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

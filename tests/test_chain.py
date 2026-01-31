@@ -180,7 +180,7 @@ def test_normalize():
     c.add_transition("A", "B", p=2.0)
     c.add_transition("A", "C", p=1.0)
 
-    c.normalize()
+    c.normalise()
 
     assert c._trans["A"]["B"]["p"] == pytest.approx(2 / 3)
     assert c._trans["A"]["C"]["p"] == pytest.approx(1 / 3)

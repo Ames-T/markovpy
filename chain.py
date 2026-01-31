@@ -9,6 +9,11 @@ class Chain:
     """
 
     def __init__(self, data=None, **attr):
+        """
+        Entry point for Chain Class
+        :param data: Optional data, converted to states.
+        :param attr:
+        """
         # Chain-Level attributes
         self.chain = dict(attr)
 
@@ -22,25 +27,39 @@ class Chain:
             self.add_states_from(data)
 
     def add_state(self, s, **attr):
-        """Add a state to the chain"""
+        """Add a state to the chain
+        :param s: State to add
+        :param attr: Any other arguments
+        """
         if s not in self._state:
             self._state[s] = {}
             self._trans[s] = {}
         self._state[s].update(attr)
 
     def add_states_from(self, states, **attr):
-        """Adds multiple states to the chain"""
+        """Adds multiple states to the chain
+        :param states: Iterable states to add
+        :param attr:  Any other arguments
+        """
         for state in states:
             self.add_state(state, **attr)
 
     def add_transition(self, u, v, p=None, **attr):
-        """Add a transition u -> v to the chain"""
+        """Add a transition u -> v to the chain
+        :param u: Transition origin state
+        :param v: Transition target state
+        :param p: Probability (optional)
+        :param attr: Any other arguments
+        """
         self.add_state(u)
         self.add_state(v)
         self._trans[u][v] = {"p": p, **attr}
 
     @property
     def states(self):
+        """
+        :return: List of states
+        """
         return self._state.keys()
 
     def transitions(self, u=None):
@@ -51,6 +70,8 @@ class Chain:
             iterate over (u, v, attr)
         Else:
             iterate over (u, v, attr) for fixed u
+
+        :param u: State to return transitions of
         """
 
         if u is None:
@@ -70,6 +91,8 @@ class Chain:
         (u, v, p)
         (u, v, attr)
         (u, v, p, attr)
+
+        :param data: Data to convert from
         """
 
         for e in data:
@@ -91,12 +114,16 @@ class Chain:
     def successors(self, u):
         """
         Returns all v where u can transition to v
+
+        :param u: Origin State
+        :return: List of States that u can transition to
         """
         return self._trans[u].keys()
 
     def predecessors(self, v):
         """
         Returns all u where u can transition to v
+        :param v: Target state to find transitions
         """
         for u, nbrs in self._trans.items():
             if v in nbrs:
@@ -105,12 +132,17 @@ class Chain:
     def has_state(self, s):
         """
         Returns true if s is a state
+        :param s: Possible state to check for
+        :return: If state exists in chain
         """
         return s in self._state
 
     def has_transition(self, u, v):
         """
         returns true if u and v are transitions
+        :param u: Origin of transition to find
+        :param v: Target of transition to find
+        :return: If transition exists
         """
         return u in self._trans and v in self._trans[u]
 
@@ -118,7 +150,9 @@ class Chain:
         """
         Returns the number of outgoing edges if weight is none.
         Else returns the sum of the weight of outgoing edges
-        :param weight: "p" returns sum
+        :param u: State to count weight
+        :param weight: "p" returns sum.
+        :return: Sum or count of weights of outgoing edges
         """
         if weight == "p":
             return sum(attr.get("p", 0) for attr in self._trans[u].values())
@@ -128,7 +162,9 @@ class Chain:
         """
         Returns the number of entering edges if weight is none.
         Else returns the sum of the weight of entering edges
-        :param weight: "p" returns sum
+        :param v: Target state to count weight
+        :param weight: "p" returns sum.
+        :return: Sum or count of weight of entering edges
         """
         deg = 0
         for u in self._trans:
@@ -142,6 +178,8 @@ class Chain:
     def is_stochastic(self, tol=1e-12):
         """
         Returns True if the chain is stochastic
+        :param tol: Optional Tolerance
+        :return: True if chain is stochastic
         """
         for u, nbrs in self._trans.items():
             if not nbrs:
@@ -151,7 +189,7 @@ class Chain:
                 return False
         return True
 
-    def normalize(self):
+    def normalise(self):
         """
         Takes the sums of the weights and normalises them to 1
         """

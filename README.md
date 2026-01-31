@@ -16,9 +16,10 @@ A PyPi package is currently in the works, there is an existing library with the 
 The following code snippet creates a empty chain, and populates it with states and transitions, it then normalises it and calculates the communicating classes.
 
 ```python
-import markovpy
+import markovpy as mp
+from markovpy.algorithms import communication_classes
 
-c = Chain()
+c = mp.Chain()
 
 c.add_states_from(["A", "B", "C"])
 c.add_transition("A", "B", p=0.5)
@@ -30,7 +31,7 @@ c.normalise()
 print(communication_classes(c))
 ```
 ```
-{'B', 'A'}, {'C'}
+[{'A'}, {'B'}, {'C'}]
 ```
 
 # Current Features

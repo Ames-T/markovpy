@@ -146,6 +146,17 @@ class Chain:
         """
         return u in self._trans and v in self._trans[u]
 
+    def transition_mass(self, u, v):
+        """
+        Return the transition probability from state u to state v
+
+        If there is no outgoing edge from u to v, returns 0
+        :param u: Origin of the weight to find
+        :param v: Target of the weight to find
+        :return:
+        """
+        return self._trans[u].get(v, 0.0)["p"]
+
     def out_degree(self, u, weight=None):
         """
         Returns the number of outgoing edges if weight is none.
@@ -210,3 +221,72 @@ class Chain:
 
     def __repr__(self):
         return f"Chain with {len(self)} states and {sum(len(n) for n in self._trans.values())} transitions"
+
+    @classmethod
+    def from_adjacency_matrix(cls, matrix, states=None, normalise=True, validate=True):
+        """
+        Constructs a Markov chain from an adjacency matric
+
+        The adjacency matrix is interpreted row-wise
+
+        :param matrix: Sequence of Sequences of non-negative numbers
+        :param states: Optional state labels
+        :param normalise: Optional, rows of matrix normalised to 1
+        :param validate: Optional, validates the matrix for correctness
+        :return: Chain
+        """
+        n = len(matrix)
+
+        if n == 0:
+            raise ValueError(f"Matrix {matrix} must be non-empty")
+
+        if validate:
+            cls._validate_matrix(matrix, states)
+
+        if states is None:
+            states = list(range(n))
+
+        chain = cls()
+
+        for i, row in enumerate(matrix):
+            total = sum(row)
+
+            for j, value in enumerate(row):
+                if value <= 0:
+                    continue
+
+                prob = value / total if normalise else value
+                chain.add_transition(states[i], states[j], prob)
+
+        return chain
+
+    @staticmethod
+    def _validate_matrix(matrix, states=None):
+        n = len(matrix)
+
+        # Check square
+        for row in matrix:
+            if len(row) != n:
+                raise ValueError(f"Matrix {matrix} must be square")
+
+        # Check states same size as matrix
+        if states is not None and len(states) != n:
+            raise ValueError(f"Number of states must match matrix dimension")
+
+        # Non-negativity, non-zero
+        for row in matrix:
+            if any(x < 0 for x in row):
+                raise ValueError(f"Matrix entries must be non-negative")
+            if sum(row) == 0:
+                raise ValueError(f"Matrix rows must be non-zero")
+
+    @staticmethod
+    def _validate_transitions(transitions, tol=1e-12):
+        for origin, target in transitions.items():
+            total = sum(target.values())
+            if abs(total - 1.0) > tol:
+                raise ValueError(f"Transition {transitions[origin]} must sum to 1")
+            if any(p < 0 for p in target.values()):
+                raise ValueError(
+                    f"Transition {transitions[origin]} must be non-negative"
+                )

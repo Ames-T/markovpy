@@ -1,6 +1,6 @@
 import pytest
 from markovpy import Chain
-from markovpy.algorithms.simulation import next_state, simulate
+from markovpy.algorithms.simulation import next_state, simulate, simulate_until
 
 
 def test_next_state_randomness():
@@ -44,3 +44,26 @@ def test_simulate_invalid_start():
 
     with pytest.raises(ValueError):
         simulate(c, start="B", steps=3)
+
+
+def test_simulate_until_invalid_start():
+    c = Chain()
+    c.add_states_from(["A", "B"])
+
+    with pytest.raises(ValueError):
+        simulate_until(c, start="A", target="B")
+
+
+def test_simulate_until_invalid_steps():
+
+    matrix = [
+        [0, 1 / 2, 1 / 2],
+        [1 / 2, 0, 1 / 2],
+        [1 / 2, 1 / 2, 0],
+    ]
+
+    c = Chain.from_adjacency_matrix(matrix, states=["A", "B", "C"])
+    c.normalise()
+
+    assert len(simulate_until(c, start="A", target="A")) == 1
+    assert len(simulate_until(c, start="A", target="B")) >= 1

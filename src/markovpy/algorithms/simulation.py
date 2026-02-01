@@ -38,3 +38,22 @@ def simulate(chain: Chain, start: str, steps: int) -> List[str]:
         current = next_state(chain, current)
         route.append(current)
     return route
+
+
+def simulate_until(chain: Chain, start: str, target) -> List[str]:
+    """
+    Simulates a path of length 'steps' from 'start'.
+    :param chain: The Markov chain object
+    :param start: The starting state of the simulation
+    :param target: The target states of the simulation
+    :return: A list of visited states, including the starting state
+    """
+    if start not in chain.states:
+        raise ValueError(f"State '{start}' is not in the chain")
+
+    route = [start]
+    current = start
+    while current not in target:
+        current = next_state(chain, current)
+        route.append(current)
+    return route

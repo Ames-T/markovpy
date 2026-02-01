@@ -120,6 +120,28 @@
         <span class="n">route</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">route</span></div>
 
+
+
+<div class="viewcode-block" id="simulate_until">
+<a class="viewcode-back" href="../../../source/markovpy.algorithms.html#markovpy.algorithms.simulation.simulate_until">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">simulate_until</span><span class="p">(</span><span class="n">chain</span><span class="p">:</span> <span class="n">Chain</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Simulates a path of length &#39;steps&#39; from &#39;start&#39;.</span>
+<span class="sd">    :param chain: The Markov chain object</span>
+<span class="sd">    :param start: The starting state of the simulation</span>
+<span class="sd">    :param target: The target states of the simulation</span>
+<span class="sd">    :return: A list of visited states, including the starting state</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">start</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">chain</span><span class="o">.</span><span class="n">states</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;State &#39;</span><span class="si">{</span><span class="n">start</span><span class="si">}</span><span class="s2">&#39; is not in the chain&quot;</span><span class="p">)</span>
+
+    <span class="n">route</span> <span class="o">=</span> <span class="p">[</span><span class="n">start</span><span class="p">]</span>
+    <span class="n">current</span> <span class="o">=</span> <span class="n">start</span>
+    <span class="k">while</span> <span class="n">current</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">target</span><span class="p">:</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">next_state</span><span class="p">(</span><span class="n">chain</span><span class="p">,</span> <span class="n">current</span><span class="p">)</span>
+        <span class="n">route</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">route</span></div>
+
 </pre></div>
 
            </div>

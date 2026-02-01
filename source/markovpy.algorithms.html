@@ -234,6 +234,31 @@ transition probabilities.</p>
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="markovpy.algorithms.simulation.simulate_until">
+<span class="sig-prename descclassname"><span class="pre">markovpy.algorithms.simulation.</span></span><span class="sig-name descname"><span class="pre">simulate_until</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/markovpy/algorithms/simulation.html#simulate_until"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#markovpy.algorithms.simulation.simulate_until" title="Link to this definition"></a></dt>
+<dd><p>Simulates a path of length ‘steps’ from ‘start’.
+:type chain: <span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="markovpy.html#markovpy.chain.Chain" title="markovpy.chain.Chain"><code class="xref py py-class docutils literal notranslate"><span class="pre">Chain</span></code></a></span>
+:param chain: The Markov chain object
+:type start: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>
+:param start: The starting state of the simulation
+:type target: 
+:param target: The target states of the simulation
+:rtype: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>
+:return: A list of visited states, including the starting state</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chain</strong> (<a class="reference internal" href="markovpy.html#markovpy.chain.Chain" title="markovpy.chain.Chain"><em>Chain</em></a>)</p></li>
+<li><p><strong>start</strong> (<em>str</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>List</em>[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 <section id="module-markovpy.algorithms.states">
 <span id="states"></span><h2>States<a class="headerlink" href="#module-markovpy.algorithms.states" title="Link to this heading"></a></h2>

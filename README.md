@@ -40,7 +40,7 @@ print(communication_classes(c))
 ```python
 [{'C', 'B', 'A'}, {'D'}, {'F', 'E'}]
 ```
-
+This snippet calculates the stationary distribution of the chain.
 ```python
 print(c.stationary_distribution())
 ```

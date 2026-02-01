@@ -290,3 +290,25 @@ class Chain:
                 raise ValueError(
                     f"Transition {transitions[origin]} must be non-negative"
                 )
+
+    def to_adjacency_matrix(self, states=None, dense=True):
+        if states is None:
+            states = list(self.states)
+
+        if dense:
+            n = len(states)
+
+            matrix = [[0.0 for _ in range(n)] for _ in range(n)]
+
+            state_index = {s: i for i, s in enumerate(states)}
+
+            for i, u in enumerate(states):
+                for v in self.successors(u):
+                    j = state_index[v]
+                    matrix[i][j] = self.transition_mass(u, v)
+            return matrix
+        else:
+            matrix = {}
+            for u in states:
+                matrix[u] = {v: self.transition_mass(u, v) for v in self.successors(u)}
+            return matrix

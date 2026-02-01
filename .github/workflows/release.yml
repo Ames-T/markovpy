@@ -4,6 +4,10 @@ on:
     tags:
       - 'v*.*.*'
 
+permissions:
+  contents: write
+  packages: write
+
 jobs:
   build-and-upload:
     runs-on: ubuntu-latest
@@ -27,5 +31,3 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: dist/*.whl
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -19,6 +19,12 @@ dev = [
     "pytest",
     "pytest-cov",
 ]
+docs = [
+    "sphinx",
+    "sphinx-rtd-theme",
+    "sphinx-autodoc-typehints",
+    "myst-parser",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

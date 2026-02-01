@@ -1,3 +1,6 @@
+import numpy as np
+
+
 class Chain:
     """
     A discrete-time Markov chain.
@@ -353,3 +356,47 @@ class Chain:
                         merged._trans[u][v]["p"] /= total
 
         return merged
+
+    def stationary_distribution(self, method="auto", tol=1e-12, max_iter=10000):
+
+        n = len(self.states)
+        states = list(self.states)
+        P = np.array(self.to_adjacency_matrix(states, dense=True), dtype=float)
+
+        if method == "auto":
+            if n <= 20:
+                method = "linear"
+            else:
+                method = "power"
+
+        if method == "linear":
+            # Solve π P = π  <=> (P.T - I) π^T = 0, sum π_i = 1
+            A = P.T - np.eye(n)
+
+            A = np.vstack([A, np.ones(n)])
+            b = np.zeros(n + 1)
+            b[-1] = 1
+            try:
+                pi = np.linalg.lstsq(A, b, rcond=None)[0]
+                pi = np.clip(pi, 0, None)  # Remove negative small values
+                pi /= pi.sum()
+            except np.linalg.LinAlgError:
+                raise ValueError("Linear algebra soloutio nfailed, try method ='power'")
+
+        elif method == "power":
+
+            row_sums = P.sum(axis=1, keepdims=True)
+            row_sums[row_sums == 0] = 1
+            P = P / row_sums
+
+            pi = np.ones(n) / n
+            for _ in range(max_iter):
+                pi_next = pi @ P
+                if np.linalg.norm(pi_next - pi, 1) < tol:
+                    pi = pi_next
+                    break
+                pi = pi_next
+
+            pi /= pi.sum()
+
+        return dict(zip(states, pi))

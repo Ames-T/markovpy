@@ -37,8 +37,16 @@ c.normalise()
 
 print(communication_classes(c))
 ```
-```
+```python
 [{'C', 'B', 'A'}, {'D'}, {'F', 'E'}]
+```
+
+```python
+print(c.stationary_distribution())
+```
+
+```python
+{'A': 0.0, 'B': 0.0, 'C': 0.0, 'D': 0.0, 'E': 0.5, 'F': 0.5}
 ```
 
 # Current Features
@@ -62,6 +70,9 @@ print(communication_classes(c))
 - Simulation algorithms:
   - `next_state()` - Sample next state.
   - `simulate()` - Generate path of states
+
+- Distribution Calculation
+  - Stationary Distribution Calculation
 
 # Future Features
 

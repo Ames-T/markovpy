@@ -11,4 +11,5 @@
 
 # Sphinx Build
 /docs/_build/
+/docs/build/
 

@@ -5,10 +5,8 @@ on:
       - 'v*.v*.*'
 
 permissions:
-  contents: write
+  contents: write  # required for creating releases
   packages: write
-  issues: read
-
 
 jobs:
   build-and-upload:

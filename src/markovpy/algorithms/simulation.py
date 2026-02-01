@@ -42,7 +42,7 @@ def simulate(chain: Chain, start: str, steps: int) -> List[str]:
 
 def simulate_until(chain: Chain, start: str, target) -> List[str]:
     """
-    Simulates a path of length 'steps' from 'start'.
+    Simulates a path of 'steps' from 'start' to a 'target'.
     :param chain: The Markov chain object
     :param start: The starting state of the simulation
     :param target: The target states of the simulation

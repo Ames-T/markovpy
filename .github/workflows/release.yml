@@ -2,11 +2,7 @@ name: Build and Release Wheel
 on:
   push:
     tags:
-      - 'v*.v*.*'
-
-permissions:
-  contents: write  # required for creating releases
-  packages: write
+      - 'v*.*.*'
 
 jobs:
   build-and-upload:

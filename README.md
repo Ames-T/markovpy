@@ -1,6 +1,6 @@
 MarkovPy
 ========
-
+[![Tests](https://github.com/Ames-T/markovpy/actions/workflows/wheels.yml/badge.svg)](https://github.com/Ames-T/markovpy/actions/workflows/wheels.yml)
 A python libray for creating and handling discrete-time markov chains.
 
 This library is heavily inspired by NetworkX

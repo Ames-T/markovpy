@@ -5,7 +5,7 @@ description = "A lightweight Markov chain library inspired by NetworkX"
 authors = [{ name = "Ames Turner" }]
 readme = "README.md"
 requires-python = ">=3.10"
-license = { text = "GPL-3.0-or-later" }
+license = "GPL-3.0-or-later"
 
 [build-system]
 requires = ["setuptools>=61", "wheel"]

@@ -1,6 +1,14 @@
+
+# IDE stuff
 /.idea/
 *.pyc
+
+# Wheel Building
 /build/
 /dist/
 /markovpy.egg-info/
 /src/markovpy.egg-info/
+
+# Sphinx Build
+/docs/_build/
+

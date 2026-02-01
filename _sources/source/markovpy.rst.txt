@@ -1,29 +1,20 @@
-markovpy package
-================
+Core
+====
 
-Subpackages
------------
+The core module contains the main abstractions used throughout the library.
 
-.. toctree::
-   :maxdepth: 4
+Chain
+-----
 
-   markovpy.algorithms
+.. autoclass:: markovpy.chain.Chain
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
 Submodules
 ----------
 
-markovpy.chain module
----------------------
+.. toctree::
+   :maxdepth: 1
 
-.. automodule:: markovpy.chain
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
-Module contents
----------------
-
-.. automodule:: markovpy
-   :members:
-   :show-inheritance:
-   :undoc-members:
+   markovpy.algorithms

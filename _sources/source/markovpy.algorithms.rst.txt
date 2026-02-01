@@ -1,37 +1,28 @@
-markovpy.algorithms package
-===========================
+Algorithms
+==========
 
-Submodules
-----------
+This module contains algorithmic tools operating on Markov chains.
 
-markovpy.algorithms.reachability module
----------------------------------------
+Reachability
+------------
 
 .. automodule:: markovpy.algorithms.reachability
    :members:
    :show-inheritance:
    :undoc-members:
 
-markovpy.algorithms.simulation module
--------------------------------------
+Simulation
+----------
 
 .. automodule:: markovpy.algorithms.simulation
    :members:
    :show-inheritance:
    :undoc-members:
 
-markovpy.algorithms.states module
----------------------------------
+States
+------
 
 .. automodule:: markovpy.algorithms.states
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
-Module contents
----------------
-
-.. automodule:: markovpy.algorithms
    :members:
    :show-inheritance:
    :undoc-members:

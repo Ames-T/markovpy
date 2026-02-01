@@ -292,6 +292,12 @@ class Chain:
                 )
 
     def to_adjacency_matrix(self, states=None, dense=True):
+        """
+
+        :param states:
+        :param dense:
+        :return:
+        """
         if states is None:
             states = list(self.states)
 
@@ -312,3 +318,38 @@ class Chain:
             for u in states:
                 matrix[u] = {v: self.transition_mass(u, v) for v in self.successors(u)}
             return matrix
+
+    @classmethod
+    def merge(cls, chain1, chain2, merge_type="add", normalise=True):
+        merged = cls()
+
+        # add all transitions from chain1
+        for u in chain1.states:
+            for v in chain1.successors(u):
+                merged.add_transition(u, v, chain1.transition_mass(u, v))
+
+        # add all transitions from chain2
+        for u in chain2.states:
+            for v in chain2.successors(u):
+                p2 = chain2.transition_mass(u, v)
+
+                if u not in merged._trans:
+                    merged.add_state(u)
+
+                if merge_type == "add":
+                    if v in merged.successors(u):
+                        # Only sum existing probability
+                        merged._trans[u][v]["p"] += p2
+                    else:
+                        merged.add_transition(u, v, p2)
+                else:  # overwrite
+                    merged.add_transition(u, v, p2)
+
+        if normalise:
+            for u in merged.states:
+                total = sum(merged.transition_mass(u, v) for v in merged.successors(u))
+                if total > 0:
+                    for v in merged.successors(u):
+                        merged._trans[u][v]["p"] /= total
+
+        return merged

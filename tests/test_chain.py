@@ -27,7 +27,7 @@ def test_add_state():
 def test_add_state_with_attributes():
     c = Chain()
     c.add_state("A", absorbing=True)
-    assert c._state["A"]["absorbing"] is True
+    assert c._states["A"]["absorbing"] is True
 
 
 def test_add_states_from():

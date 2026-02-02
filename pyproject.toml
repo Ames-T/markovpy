@@ -1,6 +1,6 @@
 [project]
 name = "markovpy"
-version = "0.2.0"
+version = "0.2.1"
 description = "A lightweight Markov chain library inspired by NetworkX"
 authors = [{ name = "Ames Turner" }]
 readme = "README.md"

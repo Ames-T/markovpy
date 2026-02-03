@@ -6,14 +6,14 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Core &mdash; MarkovPy 0.2.0 documentation</title>
+  <title>Core &mdash; MarkovPy 0.2.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=938c9ccc"></script>
+      <script src="../_static/documentation_options.js?v=37f418d5"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -102,45 +102,63 @@
 <p>A discrete-time Markov chain.</p>
 <p>States are arbitrary hashable python objects.
 Transitions are stored as adjacency dictionaries with attributes, rather than as a matrix.</p>
-<p>This class stores structures only, algorithms are implemented externally</p>
+<p>This class stores structures only, algorithms are implemented externally.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]</span>) – Optional Iterable data, converted to states.</p></li>
+<li><p><strong>attr</strong> – Optional attributes.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="markovpy.chain.Chain.add_state">
 <span class="sig-name descname"><span class="pre">add_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">attr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/markovpy/chain.html#Chain.add_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#markovpy.chain.Chain.add_state" title="Link to this definition"></a></dt>
-<dd><p>Add a state to the chain
+<dd><p>Add a state to the chain.
 :type s: 
-:param s: State to add
+:param s: State to add.
 :type attr: 
-:param attr: Any other arguments</p>
+:param attr: Any other attributes.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="markovpy.chain.Chain.add_states_from">
 <span class="sig-name descname"><span class="pre">add_states_from</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">states</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">attr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/markovpy/chain.html#Chain.add_states_from"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#markovpy.chain.Chain.add_states_from" title="Link to this definition"></a></dt>
-<dd><p>Adds multiple states to the chain
-:type states: 
-:param states: Iterable states to add
+<dd><p>Adds multiple states to the chain.
+:type states: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>
+:param states: Iterable states to add.
 :type attr: 
-:param attr:  Any other arguments</p>
+:param attr: Any other attributes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>states</strong> (<em>Iterable</em><em>[</em><em>str</em><em>]</em>)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="markovpy.chain.Chain.add_transition">
 <span class="sig-name descname"><span class="pre">add_transition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">attr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/markovpy/chain.html#Chain.add_transition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#markovpy.chain.Chain.add_transition" title="Link to this definition"></a></dt>
-<dd><p>Add a transition u -&gt; v to the chain
+<dd><p>Add a transition u -&gt; v to the chain.
 :type u: 
-:param u: Transition origin state
+:param u: Transition origin state.
 :type v: 
-:param v: Transition target state
-:type p: 
-:param p: Probability (optional)
+:param v: Transition target state.
+:type p: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]</span>
+:param p: Optional probability float.
 :type attr: 
-:param attr: Any other arguments</p>
+:param attr: Any other attributes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>p</strong> (<em>float</em><em> | </em><em>int</em><em> | </em><em>None</em>)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="markovpy.chain.Chain.states">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">states</span></span><a class="headerlink" href="#markovpy.chain.Chain.states" title="Link to this definition"></a></dt>
-<dd><p>List of states</p>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">states</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">set</span></em><a class="headerlink" href="#markovpy.chain.Chain.states" title="Link to this definition"></a></dt>
+<dd><p>List of states.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>return</p>
@@ -151,16 +169,19 @@ Transitions are stored as adjacency dictionaries with attributes, rather than as
 <dl class="py method">
 <dt class="sig sig-object py" id="markovpy.chain.Chain.transitions">
 <span class="sig-name descname"><span class="pre">transitions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/markovpy/chain.html#Chain.transitions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#markovpy.chain.Chain.transitions" title="Link to this definition"></a></dt>
-<dd><p>Returns transitions</p>
+<dd><p>Returns transitions from source u.</p>
 <dl class="simple">
-<dt>If u is none:</dt><dd><p>iterate over (u, v, attr)</p>
+<dt>If u is none:</dt><dd><p>iterate over (u, v, attr).</p>
 </dd>
-<dt>Else:</dt><dd><p>iterate over (u, v, attr) for fixed u</p>
+<dt>Else:</dt><dd><p>iterate over (u, v, attr) for fixed u.</p>
 </dd>
 </dl>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>u</strong> – State to return transitions of</p>
+<dd class="field-odd"><p><strong>u</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – State to return transitions from (Optional).</p>
+</dd>
+<dt class="field-even">Yields<span class="colon">:</span></dt>
+<dd class="field-even"><p>All transitions v -&gt; u.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -176,7 +197,10 @@ Transitions are stored as adjacency dictionaries with attributes, rather than as
 (u, v, p, attr)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>data</strong> – Data to convert from</p>
+<dd class="field-odd"><p><strong>data</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>]</span>) – Iterable Tuples to add data from.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If not in acceptable form.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -184,13 +208,16 @@ Transitions are stored as adjacency dictionaries with attributes, rather than as
 <dl class="py method">
 <dt class="sig sig-object py" id="markovpy.chain.Chain.successors">
 <span class="sig-name descname"><span class="pre">successors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/markovpy/chain.html#Chain.successors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#markovpy.chain.Chain.successors" title="Link to this definition"></a></dt>
-<dd><p>Returns all v where u can transition to v</p>
+<dd><p>Returns all v where u can transition to v.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>u</strong> – Origin State</p>
+<dd class="field-odd"><p><strong>u</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Origin State.</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>List of States that u can transition to</p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of States that u can transition to.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -198,29 +225,60 @@ Transitions are stored as adjacency dictionaries with attributes, rather than as
 <dl class="py method">
 <dt class="sig sig-object py" id="markovpy.chain.Chain.predecessors">
 <span class="sig-name descname"><span class="pre">predecessors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/markovpy/chain.html#Chain.predecessors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#markovpy.chain.Chain.predecessors" title="Link to this definition"></a></dt>
-<dd><p>Returns all u where u can transition to v
-:type v: 
-:param v: Target state to find transitions</p>
+<dd><p>Returns all u where u can transition to v.
+:type v: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>
+:param v: Target state to find transitions.
+:rtype: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></span>
+:return: List of States that u can transition to.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>v</strong> (<em>str</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="markovpy.chain.Chain.has_state">
 <span class="sig-name descname"><span class="pre">has_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/markovpy/chain.html#Chain.has_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#markovpy.chain.Chain.has_state" title="Link to this definition"></a></dt>
-<dd><p>Returns true if s is a state
-:type s: 
-:param s: Possible state to check for
-:return: If state exists in chain</p>
+<dd><p>Returns true if s is a state.
+:type s: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>
+:param s: Possible state to check for.
+:rtype: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>
+:return: If state exists in chain.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>s</strong> (<em>str</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="markovpy.chain.Chain.has_transition">
 <span class="sig-name descname"><span class="pre">has_transition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/markovpy/chain.html#Chain.has_transition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#markovpy.chain.Chain.has_transition" title="Link to this definition"></a></dt>
-<dd><p>returns true if u and v are transitions
-:type u: 
-:param u: Origin of transition to find
-:type v: 
-:param v: Target of transition to find
-:return: If transition exists</p>
+<dd><p>returns true if u and v are transitions.
+:type u: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>
+:param u: Origin of transition to find.
+:type v: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>
+:param v: Target of transition to find.
+:rtype: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>
+:return: If transition exists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u</strong> (<em>str</em>)</p></li>
+<li><p><strong>v</strong> (<em>str</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -228,44 +286,89 @@ Transitions are stored as adjacency dictionaries with attributes, rather than as
 <span class="sig-name descname"><span class="pre">transition_mass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/markovpy/chain.html#Chain.transition_mass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#markovpy.chain.Chain.transition_mass" title="Link to this definition"></a></dt>
 <dd><p>Return the transition probability from state u to state v</p>
 <p>If there is no outgoing edge from u to v, returns 0
-:type u: 
+:type u: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>
 :param u: Origin of the weight to find
-:type v: 
+:type v: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>
 :param v: Target of the weight to find
+:rtype: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>
 :return:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u</strong> (<em>str</em>)</p></li>
+<li><p><strong>v</strong> (<em>str</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="markovpy.chain.Chain.out_degree">
 <span class="sig-name descname"><span class="pre">out_degree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/markovpy/chain.html#Chain.out_degree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#markovpy.chain.Chain.out_degree" title="Link to this definition"></a></dt>
 <dd><p>Returns the number of outgoing edges if weight is none.
-Else returns the sum of the weight of outgoing edges
-:type u: 
-:param u: State to count weight
-:type weight: 
+Else returns the sum of the weight of outgoing edges.
+:type u: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>
+:param u: State to count weight.
+:type weight: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>
 :param weight: “p” returns sum.
-:return: Sum or count of weights of outgoing edges</p>
+:rtype: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>
+:return: Sum or count of weights of outgoing edges.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u</strong> (<em>str</em>)</p></li>
+<li><p><strong>weight</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="markovpy.chain.Chain.in_degree">
 <span class="sig-name descname"><span class="pre">in_degree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/markovpy/chain.html#Chain.in_degree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#markovpy.chain.Chain.in_degree" title="Link to this definition"></a></dt>
 <dd><p>Returns the number of entering edges if weight is none.
-Else returns the sum of the weight of entering edges
-:type v: 
-:param v: Target state to count weight
-:type weight: 
+Else returns the sum of the weight of entering edges.
+:type v: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>
+:param v: Target state to count weight.
+:type weight: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>
 :param weight: “p” returns sum.
-:return: Sum or count of weight of entering edges</p>
+:rtype: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>
+:return: Sum or count of weight of entering edges.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v</strong> (<em>str</em>)</p></li>
+<li><p><strong>weight</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="markovpy.chain.Chain.is_stochastic">
 <span class="sig-name descname"><span class="pre">is_stochastic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-12</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/markovpy/chain.html#Chain.is_stochastic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#markovpy.chain.Chain.is_stochastic" title="Link to this definition"></a></dt>
-<dd><p>Returns True if the chain is stochastic
-:type tol: 
-:param tol: Optional Tolerance
-:return: True if chain is stochastic</p>
+<dd><p>Returns True if the chain is stochastic.
+:type tol: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>
+:param tol: Optional Tolerance.
+:rtype: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>
+:return: True if chain is stochastic.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tol</strong> (<em>float</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -282,10 +385,10 @@ Else returns the sum of the weight of entering edges
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>matrix</strong> – Sequence of Sequences of non-negative numbers</p></li>
-<li><p><strong>states</strong> – Optional state labels</p></li>
-<li><p><strong>normalise</strong> – Optional, rows of matrix normalised to 1</p></li>
-<li><p><strong>validate</strong> – Optional, validates the matrix for correctness</p></li>
+<li><p><strong>matrix</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>]</span>) – Sequence of Sequences of non-negative numbers</p></li>
+<li><p><strong>states</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]</span>) – Optional state labels</p></li>
+<li><p><strong>normalise</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – Optional, rows of matrix normalised to 1</p></li>
+<li><p><strong>validate</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – Optional, validates the matrix for correctness</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -297,15 +400,22 @@ Else returns the sum of the weight of entering edges
 <dl class="py method">
 <dt class="sig sig-object py" id="markovpy.chain.Chain.to_adjacency_matrix">
 <span class="sig-name descname"><span class="pre">to_adjacency_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">states</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dense</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/markovpy/chain.html#Chain.to_adjacency_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#markovpy.chain.Chain.to_adjacency_matrix" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Converts a chain object to an adjacency matrix.
+:type states: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>]</span>
+:param states: Option states.
+:type dense: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>
+:param dense: Bool, if True returns dense matrix.
+:rtype: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]] | <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]</span>
+:return: Adjacency matrix.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>states</strong></p></li>
-<li><p><strong>dense</strong></p></li>
+<li><p><strong>states</strong> (<em>list</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>dense</strong> (<em>bool</em>)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p></p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[list[float]] | dict[<em>Any</em>, <em>Any</em>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -313,12 +423,51 @@ Else returns the sum of the weight of entering edges
 <dl class="py method">
 <dt class="sig sig-object py" id="markovpy.chain.Chain.merge">
 <em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">merge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chain2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merge_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'add'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/markovpy/chain.html#Chain.merge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#markovpy.chain.Chain.merge" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Combines Two chains into a new chain
+:type chain1: 
+:param chain1: First chain to combine.
+:type chain2: 
+:param chain2: Second chain to combine.
+:type merge_type: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>
+:param merge_type:
+:type normalise: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>
+:param normalise:
+:return: New merged Chain.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>merge_type</strong> (<em>str</em>)</p></li>
+<li><p><strong>normalise</strong> (<em>bool</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="markovpy.chain.Chain.stationary_distribution">
 <span class="sig-name descname"><span class="pre">stationary_distribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/markovpy/chain.html#Chain.stationary_distribution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#markovpy.chain.Chain.stationary_distribution" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Calculates the stationary distribution of the chain.
+:type method: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>
+:param method: “auto”, “linear” or “power”.
+:type tol: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>
+:param tol: Optional Tolerance.
+:type max_iter: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>
+:param max_iter: Optional max iterations of Power Method.
+:rtype: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></span>
+:return: set of stationary distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>method</strong> (<em>str</em>)</p></li>
+<li><p><strong>tol</strong> (<em>float</em>)</p></li>
+<li><p><strong>max_iter</strong> (<em>int</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 

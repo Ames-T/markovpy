@@ -41,4 +41,5 @@ html_static_path = ["_static"]
 sys.path.insert(0, os.path.abspath("../.."))
 
 autodoc_member_order = "bysource"
+autodoc_warningiserror = True
 autodoc_typehints = "description"

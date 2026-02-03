@@ -1,12 +1,12 @@
-import pytest
-from markovpy.chain import Chain
+import markovpy as mp
+from markovpy.algorithms import stationary_distribution
 import numpy as np
 
 
 def test_stationary_linear():
     matrix = [[0.9, 0.1], [0.5, 0.5]]
-    chain = Chain.from_adjacency_matrix(matrix)
-    pi = chain.stationary_distribution(method="linear")
+    chain = mp.Chain.from_adjacency_matrix(matrix)
+    pi = stationary_distribution(chain, method="linear")
 
     # Check that sum is 1
     assert abs(sum(pi.values()) - 1.0) < 1e-12
@@ -19,14 +19,12 @@ def test_stationary_linear():
 
 
 def test_stationary_power():
-    import numpy as np
-    from markovpy.chain import Chain
 
     matrix = [[0.5, 0.5], [0.2, 0.8]]
-    chain = Chain.from_adjacency_matrix(matrix)
+    chain = mp.Chain.from_adjacency_matrix(matrix)
 
     # Use power method with reasonable tol and max_iter
-    pi = chain.stationary_distribution(method="power", tol=1e-12, max_iter=100000)
+    pi = stationary_distribution(chain, method="power", tol=1e-12, max_iter=100000)
 
     # 1. Probabilities sum to 1
     assert abs(sum(pi.values()) - 1.0) < 1e-12

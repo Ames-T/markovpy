@@ -4,7 +4,7 @@ from .reachability import reachable, communicates, communication_classes, is_clo
 
 from .simulation import next_state, simulate, simulate_until
 
-from .analysis import expected_hitting_times
+from .analysis import expected_hitting_times, stationary_distribution
 
 __all__ = [
     "is_absorbing",
@@ -18,4 +18,5 @@ __all__ = [
     "simulate",
     "simulate_until",
     "expected_hitting_times",
+    "stationary_distribution",
 ]

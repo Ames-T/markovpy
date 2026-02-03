@@ -26,3 +26,11 @@ States
    :members:
    :show-inheritance:
    :undoc-members:
+
+Analysis
+--------
+
+.. automodule:: markovpy.algorithms.analysis
+   :members:
+   :show-inheritance:
+   :undoc-members:

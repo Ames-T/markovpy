@@ -6,7 +6,7 @@ from .simulation import next_state, simulate, simulate_until
 
 from .analysis import expected_hitting_times
 
-"""__all__ = [
+__all__ = [
     "is_absorbing",
     "absorbing_states",
     "outgoing_mass",
@@ -18,4 +18,4 @@ from .analysis import expected_hitting_times
     "simulate",
     "simulate_until",
     "expected_hitting_times",
-]"""
+]

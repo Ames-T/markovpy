@@ -1,6 +1,10 @@
-from markovpy import __version__
 import os
 import sys
+
+# Has to be in this order. Sphinx needs to know where markovpy is before it can import the version
+sys.path.insert(0, os.path.abspath(".."))
+
+from markovpy import __version__
 
 # Configuration file for the Sphinx documentation builder.
 #
@@ -22,10 +26,12 @@ version = __version__
 extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.napoleon",
+    "sphinx.ext.autosummary",
     "sphinx.ext.viewcode",
     "sphinx_autodoc_typehints",
     "myst_parser",
 ]
+autosummary_generate = True
 
 
 templates_path = ["_templates"]
@@ -37,8 +43,6 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 html_theme = "sphinx_rtd_theme"
 html_static_path = ["_static"]
-
-sys.path.insert(0, os.path.abspath("../.."))
 
 autodoc_member_order = "bysource"
 autodoc_warningiserror = True

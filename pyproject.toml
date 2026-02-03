@@ -1,6 +1,6 @@
 [project]
 name = "markovpy"
-version = "0.2.1"
+dynamic = ["version"]
 description = "A lightweight Markov chain library inspired by NetworkX"
 authors = [{ name = "Ames Turner" }]
 readme = "README.md"
@@ -9,6 +9,9 @@ license = "GPL-3.0-or-later"
 dependencies = [
     "numpy>=1.26"
 ]
+
+[tool.setuptools.dynamic]
+version = { attr = "markovpy.__version__" }
 
 [build-system]
 requires = ["setuptools>=61", "wheel"]

@@ -1,3 +1,7 @@
+from markovpy import __version__
+import os
+import sys
+
 # Configuration file for the Sphinx documentation builder.
 #
 # For the full list of built-in configuration values, see the documentation:
@@ -9,7 +13,8 @@
 project = "MarkovPy"
 copyright = "2026, Ames Turner"
 author = "Ames Turner"
-release = "0.2.1"
+release = __version__
+version = __version__
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -32,9 +37,6 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 html_theme = "sphinx_rtd_theme"
 html_static_path = ["_static"]
-
-import os
-import sys
 
 sys.path.insert(0, os.path.abspath("../.."))
 

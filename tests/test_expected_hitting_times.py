@@ -1,6 +1,6 @@
 import numpy as np
 import markovpy as mp
-
+import pytest
 from markovpy.algorithms import expected_hitting_times
 
 
@@ -68,3 +68,31 @@ def test_first_step_equation():
         else:
             rhs = 1 + np.dot(P_np[i], h)
             assert np.isclose(h[i], rhs)
+
+
+def test_key_and_index_target_equivalence():
+    P = [
+        [0.0, 1.0],
+        [0.2, 0.8],
+    ]
+    states = ["A", "B"]
+    chain = mp.Chain.from_adjacency_matrix(P, states)
+    chain.normalise()
+
+    h_idx = expected_hitting_times(chain, target=1)
+    h_key = expected_hitting_times(chain, target="B")
+
+    assert np.allclose(h_idx, h_key)
+
+
+def test_invalid_target_key():
+    P = [
+        [0.5, 0.5],
+        [0.5, 0.5],
+    ]
+    states = ["A", "B"]
+    chain = mp.Chain.from_adjacency_matrix(P, states)
+    chain.normalise()
+
+    with pytest.raises(KeyError):
+        expected_hitting_times(chain, target="C")

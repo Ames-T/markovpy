@@ -1,5 +1,4 @@
 import numpy as np
-import pytest
 from markovpy import Chain
 
 
@@ -16,7 +15,7 @@ def expected_hitting_times(chain: Chain, target: int | str) -> np.ndarray:
         target_idx = target
     else:
         try:
-            target_idx = chain.states.index(target)
+            target_idx = list(chain.states).index(target)
         except ValueError:
             raise KeyError(f"State {target!r} not in chain")
 
@@ -43,31 +42,3 @@ def expected_hitting_times(chain: Chain, target: int | str) -> np.ndarray:
 
     h = np.linalg.solve(A, b)
     return h
-
-
-def test_key_and_index_target_equivalence():
-    P = [
-        [0.0, 1.0],
-        [0.2, 0.8],
-    ]
-    states = ["A", "B"]
-    chain = Chain.from_adjacency_matrix(P, states)
-    chain.normalise()
-
-    h_idx = expected_hitting_times(chain, target=1)
-    h_key = expected_hitting_times(chain, target="B")
-
-    assert np.allclose(h_idx, h_key)
-
-
-def test_invalid_target_key():
-    P = [
-        [0.5, 0.5],
-        [0.5, 0.5],
-    ]
-    states = ["A", "B"]
-    chain = Chain.from_adjacency_matrix(P, states)
-    chain.normalise()
-
-    with pytest.raises(KeyError):
-        expected_hitting_times(chain, target="C")

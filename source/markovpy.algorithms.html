@@ -356,6 +356,35 @@ transition probabilities.</p>
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="markovpy.algorithms.analysis.stationary_distribution">
+<span class="sig-prename descclassname"><span class="pre">markovpy.algorithms.analysis.</span></span><span class="sig-name descname"><span class="pre">stationary_distribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/markovpy/algorithms/analysis.html#stationary_distribution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#markovpy.algorithms.analysis.stationary_distribution" title="Link to this definition"></a></dt>
+<dd><p>Calculates the stationary distribution of the chain.
+:type chain: <span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="markovpy.html#markovpy.chain.Chain" title="markovpy.chain.Chain"><code class="xref py py-class docutils literal notranslate"><span class="pre">Chain</span></code></a></span>
+:param chain: A MarkovChain object.
+:type method: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>
+:param method: “auto”, “linear” or “power”.
+:type tol: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>
+:param tol: Optional Tolerance.
+:type max_iter: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>
+:param max_iter: Optional max iterations of Power Method.
+:rtype: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span>
+:return: set of stationary distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chain</strong> (<a class="reference internal" href="markovpy.html#markovpy.chain.Chain" title="markovpy.chain.Chain"><em>Chain</em></a>)</p></li>
+<li><p><strong>method</strong> (<em>str</em>)</p></li>
+<li><p><strong>tol</strong> (<em>float</em>)</p></li>
+<li><p><strong>max_iter</strong> (<em>int</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 </section>
 

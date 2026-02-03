@@ -64,7 +64,7 @@ class Chain:
         self._trans[u][v] = {"p": p, **attr}  # Optional p value.
 
     @property
-    def states(self) -> set:
+    def states(self):
         """
         :return: Set of states.
         """

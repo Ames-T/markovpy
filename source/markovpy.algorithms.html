@@ -90,8 +90,100 @@
   <section id="algorithms">
 <h1>Algorithms<a class="headerlink" href="#algorithms" title="Link to this heading"></a></h1>
 <p>This module contains algorithmic tools operating on Markov chains.</p>
-<section id="reachability">
-<h2>Reachability<a class="headerlink" href="#reachability" title="Link to this heading"></a></h2>
+<section id="module-markovpy.algorithms.reachability">
+<span id="reachability"></span><h2>Reachability<a class="headerlink" href="#module-markovpy.algorithms.reachability" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="markovpy.algorithms.reachability.can_step">
+<span class="sig-prename descclassname"><span class="pre">markovpy.algorithms.reachability.</span></span><span class="sig-name descname"><span class="pre">can_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/markovpy/algorithms/reachability.html#can_step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#markovpy.algorithms.reachability.can_step" title="Link to this definition"></a></dt>
+<dd><p>Returns true if state u can transition to state v</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chain</strong> – Chain of states</p></li>
+<li><p><strong>u</strong> – State to transition from</p></li>
+<li><p><strong>v</strong> – State to transition to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Boolean indicating if state u can transition to state v</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="markovpy.algorithms.reachability.reachable">
+<span class="sig-prename descclassname"><span class="pre">markovpy.algorithms.reachability.</span></span><span class="sig-name descname"><span class="pre">reachable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/markovpy/algorithms/reachability.html#reachable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#markovpy.algorithms.reachability.reachable" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of reachable states from state source</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chain</strong> – Chain of states</p></li>
+<li><p><strong>source</strong> – Source state</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of reachable states</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="markovpy.algorithms.reachability.communicates">
+<span class="sig-prename descclassname"><span class="pre">markovpy.algorithms.reachability.</span></span><span class="sig-name descname"><span class="pre">communicates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/markovpy/algorithms/reachability.html#communicates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#markovpy.algorithms.reachability.communicates" title="Link to this definition"></a></dt>
+<dd><p>Returns true if state u can transition to state v AND state v can transition to state u.
+:type chain: 
+:param chain: Chain of states
+:type u: 
+:param u: First State
+:type v: 
+:param v: Second State
+:rtype: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>
+:return: Returns true if state u can transition to state v AND state v can transition to state u.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="markovpy.algorithms.reachability.communication_classes">
+<span class="sig-prename descclassname"><span class="pre">markovpy.algorithms.reachability.</span></span><span class="sig-name descname"><span class="pre">communication_classes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/markovpy/algorithms/reachability.html#communication_classes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#markovpy.algorithms.reachability.communication_classes" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of communicating classes of chain
+:type chain: 
+:param chain: Chain of states
+:rtype: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></span>
+:return: List of communicating classes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="markovpy.algorithms.reachability.is_closed">
+<span class="sig-prename descclassname"><span class="pre">markovpy.algorithms.reachability.</span></span><span class="sig-name descname"><span class="pre">is_closed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cls</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/markovpy/algorithms/reachability.html#is_closed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#markovpy.algorithms.reachability.is_closed" title="Link to this definition"></a></dt>
+<dd><p>Returns true if state cls is closed (Cannot reach any other state)
+:type chain: 
+:param chain: Chain of states
+:type cls: 
+:param cls: Communicating class to check
+:rtype: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>
+:return: True if state cls is closed</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 <section id="module-markovpy.algorithms.simulation">
 <span id="simulation"></span><h2>Simulation<a class="headerlink" href="#module-markovpy.algorithms.simulation" title="Link to this heading"></a></h2>
@@ -239,8 +331,31 @@ transition probabilities.</p>
 </dd></dl>
 
 </section>
-<section id="analysis">
-<h2>Analysis<a class="headerlink" href="#analysis" title="Link to this heading"></a></h2>
+<section id="module-markovpy.algorithms.analysis">
+<span id="analysis"></span><h2>Analysis<a class="headerlink" href="#module-markovpy.algorithms.analysis" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="markovpy.algorithms.analysis.expected_hitting_times">
+<span class="sig-prename descclassname"><span class="pre">markovpy.algorithms.analysis.</span></span><span class="sig-name descname"><span class="pre">expected_hitting_times</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/markovpy/algorithms/analysis.html#expected_hitting_times"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#markovpy.algorithms.analysis.expected_hitting_times" title="Link to this definition"></a></dt>
+<dd><p>Computes the expected hitting time to a target state.
+:type chain: <span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="markovpy.html#markovpy.chain.Chain" title="markovpy.chain.Chain"><code class="xref py py-class docutils literal notranslate"><span class="pre">Chain</span></code></a></span>
+:param chain: A normalised MarkovChain object.
+:type target: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>
+:param target: Target State. Can either be a numerical index or a state label.
+:rtype: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span>
+:return: Expected Hitting Times: h[i] = expected steps from i to target</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chain</strong> (<a class="reference internal" href="markovpy.html#markovpy.chain.Chain" title="markovpy.chain.Chain"><em>Chain</em></a>)</p></li>
+<li><p><strong>target</strong> (<em>int</em><em> | </em><em>str</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>ndarray</em></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 </section>
 

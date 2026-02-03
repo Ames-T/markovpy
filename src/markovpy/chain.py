@@ -66,7 +66,7 @@ class Chain:
     @property
     def states(self) -> set:
         """
-        :return: List of states.
+        :return: Set of states.
         """
         return self._states.keys()
 

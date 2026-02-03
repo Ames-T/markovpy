@@ -17,6 +17,32 @@ version = { attr = "markovpy.__version__" }
 requires = ["setuptools>=61", "wheel"]
 build-backend = "setuptools.build_meta"
 
+[tool.bumpversion]
+current_version = "0.2.2"
+commit = true
+tag = true
+
+parse = "(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)"
+serialize = ["{major}.{minor}.{patch}"]
+search = "{current_version}"
+replace = "{new_version}"
+regex = false
+ignore_missing_version = false
+sign_tags = false
+tag_name = "v{new_version}"
+tag_message = "Bump version: {current_version} → {new_version}"
+allow_dirty = false
+message = "Bump version: {current_version} → {new_version}"
+commit_args = ""
+ignore_missing_files = false
+moveable_tags = []
+setup_hooks = []
+pre_commit_hooks = []
+post_commit_hooks = []
+
+[[tool.bumpversion.files]]
+filename = "markovpy/__init__.py"
+
 [project.optional-dependencies]
 dev = [
     "pytest",

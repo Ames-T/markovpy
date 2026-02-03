@@ -8,9 +8,7 @@ This library is heavily inspired by NetworkX.
 
 # Installation
 
-A PyPi package is currently in the works, there is an existing library with the name MarkovPy and I will be reaching out to the owner to try to acquire the name.
-
-```pip install MarkovPy```
+A PyPI package may be available in future releases. For now, install from source or your own builds.
 
 # Example Usage
 
@@ -18,7 +16,7 @@ The following code snippet creates a empty chain, and populates it with states a
 
 ```python
 import markovpy as mp
-from markovpy.algorithms import communication_classes
+from markovpy.algorithms import communication_classes, stationary_distribution
 
 transition_matrix = [
   [1/2, 1/2, 0.0, 0.0, 0.0, 0.0],
@@ -37,48 +35,50 @@ c.normalise()
 
 print(communication_classes(c))
 ```
+Output:
 ```python
 [{'C', 'B', 'A'}, {'D'}, {'F', 'E'}]
 ```
-This snippet calculates the stationary distribution of the chain.
+Compute the stationary distribution of the chain.
 ```python
 print(c.stationary_distribution())
 ```
-
+Output:
 ```python
 {'A': 0.0, 'B': 0.0, 'C': 0.0, 'D': 0.0, 'E': 0.5, 'F': 0.5}
 ```
 
 # Current Features
 
-- A Chain class
-  - Create, manipulate and access states and transitions.
-  - Compute in/out weights and degrees.
-  - Validate stochasticity, and normalise probabilities.
-  - Create from adjacency matrices.
-  - Chain merging, with overlapping or disjoint states.
+MarkovPy provides:
+- Core Chain representation.
+  - Chain class to define states and transitions.
+  - Construct Chains from adjacency matrices, or by explicitly adding transitions.
+  - Compute weights, degrees and validate or normalise to proper stochastic form.
 
-- States algorithms
-  - Absorbing and Transient states calculations.
-  - Outgoing probability mass calculations.
-
-- Reachability Algorithms
+- State and Reachability.
+  - Determine absorbing and transient states.
+  - Compute communicating states and communicating classes.
   - Check reachability between states.
-  - Compute communicating states.
-  - Identify communicating classes.
 
-- Simulation algorithms:
-  - `next_state()` - Sample next state.
-  - `simulate()` - Generate path of states
+- Simulation Algorithms.
+  - Sample the next state.
+  - Generate sample paths of length.
 
-- Distribution Calculation
-  - Stationary Distribution Calculation
+- Analytic Algorithms.
+  - Calculate the stationary distribution.
+  - Calculate the expected hitting times.
+
+- Documentation.
+  - Dynamic generation of sphinx documentation.
+
 
 # Future Features
 
-- Chain generation from historic transition data.
-- Full documentation
-- Publishing to PyPi (Priority)
+- Extending analytic functions.
+- More simulation methods.
+- Support for learning transition models from historic data
+- Publishing to PyPi (high priority)
 
 # Contributing
 

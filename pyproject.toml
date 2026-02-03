@@ -41,7 +41,7 @@ pre_commit_hooks = []
 post_commit_hooks = []
 
 [[tool.bumpversion.files]]
-filename = "markovpy/__init__.py"
+filename = "src/markovpy/__init__.py"
 
 [project.optional-dependencies]
 dev = [

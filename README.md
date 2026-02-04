@@ -2,7 +2,7 @@ MarkovPy
 ========
 [![Tests](https://github.com/Ames-T/markovpy/actions/workflows/wheels.yml/badge.svg)](https://github.com/Ames-T/markovpy/actions/workflows/wheels.yml) ![Trans Rights](https://pride-badges.pony.workers.dev/static/v1?label=Trans+Rights&labelColor=%23555&stripeWidth=8&stripeColors=5BCEFA%2CF5A9B8%2CFFFFFF%2CF5A9B8%2C5BCEFA)
 
-A python libray for creating and handling discrete-time markov chains.
+A python library for creating and handling discrete-time markov chains.
 
 This library is heavily inspired by NetworkX.
 
